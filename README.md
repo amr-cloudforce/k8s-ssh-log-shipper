@@ -1,3 +1,6 @@
+This repo creates a helm package for shpping logs from are remote ssh package. The logs will be the logs of the container running the shipper and can be viewed with any generic Kubernetes log shipper, e.g. fluentd.
+
+
 ## Prerequisites
 - Skaffold 
 - Helm
@@ -9,7 +12,7 @@
 - **LOGIN** username@host
 - **YOUR LOGS PATH** Path to your log files to be shipped. Can include wildcards
 - **PORT** SSH PORT 
-- ** SSH KEY** Your ssh private key file
+- **SSH KEY** Your ssh private key file
 
 1. `create secret generic wp-log-shipper   --from-literal logs=<YOUR LOGS PATH> --from-literal login=<LOGIN> --from-literal port=<PORT> -nmonitoring`
 2. `create secret generic ssh-private-key   --from-file id_rsa=<YOUR SSH PRIVATE KEY FILE> -nmonitoring`
