@@ -2,7 +2,7 @@ This repo creates a **HELM** package for shpping logs from a remote **ssh-server
 
 The shipper is basically an ssh-client which tails the requested logs from the remote server. 
 
-**Note**: This shipper is a based on a pull approach and does not track the position of the last shipping in the file. If the pods becomes unavailable, the logs will be lost!  
+**Note**: This shipper is a based on a pull approach and does not track the position of the last shipping in the file. If the pod becomes unavailable, the logs will be lost!  
 
 Here is how it could look like in an ELK stack in Kibana, as part of the generic shipping of all log files to Elasticsearch.
 
