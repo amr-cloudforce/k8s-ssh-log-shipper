@@ -1,4 +1,9 @@
-This repo creates a helm package for shpping logs from are remote ssh package. The logs will be the logs of the container running the shipper and can be viewed with any generic Kubernetes log shipper, e.g. fluentd.
+This repo creates a helm package for shpping logs from are remote ssh package. The logs will be the logs of the container running the shipper and can be viewed with any generic Kubernetes log shipper, e.g. fluentd. 
+
+Here is how it could look like in an ELK stack in Kibana. 
+
+![image](https://user-images.githubusercontent.com/73740780/112063149-3f98d000-8b61-11eb-96c8-78846eb7574e.png)
+
 
 
 ## Prerequisites
