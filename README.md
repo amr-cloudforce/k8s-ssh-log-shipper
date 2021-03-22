@@ -21,4 +21,4 @@ Here is how it could look like in an ELK stack in Kibana.
 
 1. `create secret generic wp-log-shipper   --from-literal logs=<YOUR LOGS PATH> --from-literal login=<LOGIN> --from-literal port=<PORT> -nmonitoring`
 2. `create secret generic ssh-private-key   --from-file id_rsa=<YOUR SSH PRIVATE KEY FILE> -nmonitoring`
-3. skaffold dev
+3. `skaffold dev
