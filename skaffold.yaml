@@ -1,0 +1,28 @@
+apiVersion: skaffold/v2beta12
+
+kind: Config
+build:
+  artifacts:
+  - image: wp-log-shipper
+    docker:
+      dockerfile: Dockerfile
+    sync:
+      auto: true
+deploy:
+  helm:
+    flags:
+      upgrade:
+        - --install
+        - --wait
+        - --atomic
+        - --history-max=3
+    releases:
+      - name: wp-log-shipper
+        createNamespace: true
+        chartPath: helm
+        upgradeOnChange: true
+        namespace: monitoring
+        valuesFiles:
+          - helm/values.develop.yaml
+        artifactOverrides:
+          image: wp-log-shipper

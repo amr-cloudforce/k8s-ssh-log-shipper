@@ -1,0 +1,3 @@
+=== Quickstart
+1. create secret generic wp-log-shipper   --from-literal logs=<YOUR LOGS PATH> --from-literal login=<USERNAME>@<HOST> --from-literal port=<PORT> -nmonitoring
+2. skaffold dev
