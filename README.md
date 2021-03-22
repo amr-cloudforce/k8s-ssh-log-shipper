@@ -2,7 +2,8 @@ This repo creates a helm package for shpping logs from are remote ssh package. T
 
 Here is how it could look like in an ELK stack in Kibana, as part of the generic shipping of all log files to Elasticsearch.
 
-![image](https://user-images.githubusercontent.com/73740780/112063149-3f98d000-8b61-11eb-96c8-78846eb7574e.png)
+![image](https://user-images.githubusercontent.com/73740780/112063353-91d9f100-8b61-11eb-8f31-68e485288c3d.png)
+
 
 
 
