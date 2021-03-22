@@ -1,4 +1,4 @@
-This repo creates a **HELM** package for shpping logs from a remote **ssh-server**. The logs will become the logs of the **Kubernetes** container running the shipper. Hence,the logs of the remote server can be viewed with any generic Kubernetes log shipper like fluentd. 
+This repo creates a **HELM** package for shpping logs from a remote **ssh-server**. The logs will become the logs of the **Kubernetes** container running the shipper (basically an ssh-client). Hence,the logs of the remote server can be viewed with any generic Kubernetes log shipper like fluentd. 
 
 Here is how it could look like in an ELK stack in Kibana, as part of the generic shipping of all log files to Elasticsearch.
 
