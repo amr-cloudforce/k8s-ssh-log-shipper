@@ -56,7 +56,7 @@ spec:
                 key: port
         name: {{ .Release.Name }}
         command:  ["ssh"]
-        args: ["-i", "/root/.ssh/id_rsa", "-p", "$(port)","-o","StrictHostKeyChecking=no", "-o", "ServerAliveCountMax=1", "-o", "ServerAliveInterval=30", "$(login)", "tail", "-f", "$(logs)"]
+        args: ["-i", "/root/.ssh/id_rsa", "-p", "$(port)","-o","StrictHostKeyChecking=no", "-o", "ServerAliveCountMax=1", "-o", "ServerAliveInterval=5", "$(login)", "tail", "-f", "$(logs)"]
         resources: {}
         terminationMessagePath: /dev/termination-log
         terminationMessagePolicy: File
