@@ -9,6 +9,7 @@ build:
     sync:
       auto: true
 deploy:
+  statusCheckDeadlineSeconds: 100
   helm:
     flags:
       upgrade:
