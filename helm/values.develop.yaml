@@ -6,7 +6,7 @@ replicaCount: 1
 
 
 image:
- name: wp-log-shipper
+ name: k8s-log-shipper
 # image:
 #   repository: nginx
 #   pullPolicy: IfNotPresent

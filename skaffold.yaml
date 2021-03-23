@@ -2,8 +2,10 @@ apiVersion: skaffold/v2beta12
 
 kind: Config
 build:
+  tagPolicy:
+    sha256: { }
   artifacts:
-  - image: wp-log-shipper
+  - image: k8s-log-shipper
     docker:
       dockerfile: Dockerfile
     sync:
@@ -18,7 +20,7 @@ deploy:
         - --atomic
         - --history-max=3
     releases:
-      - name: wp-log-shipper
+      - name: k8s-log-shipper
         createNamespace: true
         chartPath: helm
         upgradeOnChange: true
@@ -26,4 +28,4 @@ deploy:
         valuesFiles:
           - helm/values.develop.yaml
         artifactOverrides:
-          image: wp-log-shipper
+          image: k8s-log-shipper
