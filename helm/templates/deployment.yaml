@@ -65,6 +65,6 @@ spec:
           - mountPath:  /root/.ssh
             name: ssh-private-key
       imagePullSecrets:
-        - name: itlancer
+        - name: pull-secret
 
 {{- end }}
