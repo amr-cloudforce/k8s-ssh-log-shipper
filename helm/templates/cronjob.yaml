@@ -1,0 +1,58 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: {{ .Release.Name }}
+spec:
+  schedule: "* */1 * * *"
+  concurrencyPolicy: "Forbid"
+  successfulJobsHistoryLimit:  1
+  {{- if eq  .Values.cronjob false }}
+  suspend: true
+  {{ end }}
+  jobTemplate:
+    spec:
+#      parallelism: 0
+      activeDeadlineSeconds:  3600
+      backoffLimit: 0
+      template:
+        spec:
+          restartPolicy:  OnFailure
+          volumes:
+            - secret:
+                secretName: ssh-private-key
+                defaultMode: 0400
+              name: ssh-private-key
+          imagePullSecrets:
+          - name: itlancer
+          containers:
+            - image: {{ .Values.image }}
+              imagePullPolicy: Always
+              env:
+                - name: login
+                  valueFrom:
+                    secretKeyRef:
+                      name: wp-log-shipper
+                      key: login
+                - name: logs
+                  valueFrom:
+                    secretKeyRef:
+                      name: wp-log-shipper
+                      key: logs
+                - name: port
+                  valueFrom:
+                    secretKeyRef:
+                      name: wp-log-shipper
+                      key: port
+              name: {{ .Release.Name }}
+              command: [ "ssh" ]
+              args: [ "-i", "/root/.ssh/id_rsa", "-p", "$(port)","-o","StrictHostKeyChecking=no", "-o", "ServerAliveCountMax=1", "-o", "ServerAliveInterval=5", "$(login)", "tail", "-n1", "-f", "$(logs)" ]
+              resources: { }
+              terminationMessagePath: /dev/termination-log
+              terminationMessagePolicy: File
+              volumeMounts:
+                - mountPath: /root/.ssh
+                  name: ssh-private-key
+
+
+
+
