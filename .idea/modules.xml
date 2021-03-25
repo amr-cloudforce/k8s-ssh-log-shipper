@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/wp-log-shipper.iml" filepath="$PROJECT_DIR$/.idea/wp-log-shipper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/k8s-ssh-log-shipper.iml" filepath="$PROJECT_DIR$/.idea/k8s-ssh-log-shipper.iml" />
     </modules>
   </component>
 </project>
